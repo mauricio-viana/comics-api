@@ -17,6 +17,14 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Video> videos = new ArrayList<>();
 
+    public Category(){}
+
+    public Category(String title, String color, String description) {
+        this.title = title;
+        this.color = color;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }
