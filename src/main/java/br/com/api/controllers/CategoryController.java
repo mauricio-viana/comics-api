@@ -7,9 +7,13 @@ import br.com.api.controllers.form.UpdateCategoryForm;
 import br.com.api.models.Category;
 import br.com.api.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -23,18 +27,13 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/categories")
 public class CategoryController {
-    private CategoryRepository categoryRepository;
 
     @Autowired
-    public CategoryController(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
+    private CategoryRepository categoryRepository;
 
     @GetMapping
     public Page<CategoryDto> getAll(@RequestParam(required = false) String title,
-                                    @RequestParam int page, @RequestParam int amount) {
-
-        Pageable pagination = PageRequest.of(page, amount);
+                                    @PageableDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pagination) {
 
         if (title == null){
             Page<Category> categories = categoryRepository.findAll(pagination);

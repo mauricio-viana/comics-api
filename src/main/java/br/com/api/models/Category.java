@@ -14,7 +14,7 @@ public class Category {
     private String color;
     private String description;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
     private List<Video> videos = new ArrayList<>();
 
     public Category(){}

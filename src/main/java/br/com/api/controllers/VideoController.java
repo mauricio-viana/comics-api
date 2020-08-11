@@ -22,14 +22,8 @@ import java.util.Optional;
 @RequestMapping("/videos")
 public class VideoController  {
 
-    private VideoRepository videoRepository;
-    private CategoryRepository categoryRepository;
-
     @Autowired
-    public VideoController(VideoRepository videoRepository, CategoryRepository categoryRepository) {
-        this.videoRepository = videoRepository;
-        this.categoryRepository = categoryRepository;
-    }
+    private VideoRepository videoRepository;
 
     @PostMapping
     @Transactional
