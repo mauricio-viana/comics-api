@@ -1,5 +1,5 @@
-INSERT INTO Category( description, color, title) VALUES('Quadrinhos?','#6BD1FF','Conteúdos sobre os quadrinhos');
-INSERT INTO Category( description, color, title) VALUES('Previsões e curiosidades','#1548a9','Youtubers com teorias sobre os destinos dos animes e desvendando mistérios.');
+INSERT INTO Category( title, color, description) VALUES('Quadrinhos?','#6BD1FF','Conteúdos sobre os quadrinhos');
+INSERT INTO Category( title, color, description) VALUES('Previsões e curiosidades','#1548a9','Youtubers com teorias sobre os destinos dos animes e desvendando mistérios.');
 
 INSERT INTO Video(title, url, description,category_id) VALUES ('BARBA BRANCA: O PIRATA QUE MORREU DE PÉ','https://www.youtube.com/watch?v=SvJcHB5R-Dg','',1);
 INSERT INTO Video(title, url, description,category_id) VALUES ('CRONOLOGIA: X-MEN - GUIA DE LEITURA','https://www.youtube.com/watch?v=jBWORLynLv8','',1);
