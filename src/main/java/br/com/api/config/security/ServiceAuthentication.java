@@ -1,7 +1,7 @@
 package br.com.api.config.security;
 
 import br.com.api.models.UserApi;
-import br.com.api.repository.UserRepository;
+import br.com.api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

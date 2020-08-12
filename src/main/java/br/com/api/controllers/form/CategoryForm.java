@@ -1,6 +1,7 @@
 package br.com.api.controllers.form;
 
 import br.com.api.models.Category;
+import br.com.api.repositories.CategoryRepository;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -32,4 +33,13 @@ public class CategoryForm {
         return new Category(this.title, this.color, this.description);
     }
 
+    public Category update(Long id, CategoryRepository categoryRepository) {
+        Category category = categoryRepository.getOne(id);
+
+        category.setTitle(this.title);
+        category.setColor(this.color);
+        category.setDescription(this.description);
+
+        return category;
+    }
 }

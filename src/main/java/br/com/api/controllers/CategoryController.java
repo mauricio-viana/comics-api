@@ -3,14 +3,10 @@ package br.com.api.controllers;
 import br.com.api.controllers.dto.CategoryDto;
 import br.com.api.controllers.dto.CategoryAndVideoDto;
 import br.com.api.controllers.form.CategoryForm;
-import br.com.api.controllers.form.UpdateCategoryForm;
 import br.com.api.models.Category;
-import br.com.api.repository.CategoryRepository;
+import br.com.api.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -61,7 +57,7 @@ public class CategoryController {
 
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<CategoryDto> update(@PathVariable Long id, @RequestBody @Valid UpdateCategoryForm form){
+    public ResponseEntity<CategoryDto> update(@PathVariable Long id, @RequestBody @Valid CategoryForm form){
         Optional<Category> optional = categoryRepository.findById(id);
         if (optional.isPresent()){
             Category category = form.update(id, categoryRepository);

@@ -1,4 +1,4 @@
-package br.com.api.repository;
+package br.com.api.repositories;
 
 import br.com.api.models.UserApi;
 import org.springframework.data.jpa.repository.JpaRepository;

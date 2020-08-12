@@ -2,6 +2,7 @@ package br.com.api.controllers.form;
 
 import br.com.api.models.Category;
 import br.com.api.models.Video;
+import br.com.api.repositories.VideoRepository;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -37,5 +38,16 @@ public class VideoForm {
 
     public Video toConvert() {
         return new Video( this.category, this.title, this.url, this.description );
+    }
+
+    public Video update(Long id, VideoRepository videoRepository) {
+        Video video = videoRepository.getOne(id);
+
+        video.setCategory(this.category);
+        video.setTitle(this.title);
+        video.setUrl(this.url);
+        video.setDescription(this.description);
+
+        return video;
     }
 }
