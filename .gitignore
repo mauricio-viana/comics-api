@@ -3,7 +3,7 @@
 *.iml
 out
 gen
-build
+target
 
 # Compiled class file
 *.class
