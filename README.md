@@ -28,7 +28,7 @@ $ git clone https://github.com/mauricio-viana/comicsflix-api.git
 
 **Opcional: Pupular tabelas**
 
-1º - Crie o arquivo com nome import.sql dentro do diretorio src/main/resources
+1º - Crie o arquivo com nome import.sql dentro do diretório src/main/resources
 
 2º - Gerar senha [BCrypt](https://passwordhashing.com/BCrypt)
 
